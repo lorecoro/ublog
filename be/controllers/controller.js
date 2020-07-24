@@ -1,8 +1,14 @@
 const post = require('../models/post');
 
 exports.getPosts = (req, res) => {
+    const filter = {};
+    const fields = ['user', 'post', 'date'];
+    const options = {
+        limit: 20,
+        sort: {date: -1}
+    };
     res.setHeader('Content-Type', 'application/json');
-    post.find({}, (err, posts) => {
+    post.find(filter, fields, options, (err, posts) => {
         if (err) return res.status(500).send(err);
         return res.status(200).json(posts);
     });

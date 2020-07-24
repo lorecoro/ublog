@@ -1,11 +1,11 @@
 import React from "react";
+import Form from "./Form";
 
 function Right() {
     return (
         <>
             <div className="section">
-                <h5>Section 1</h5>
-                <p>Stuff</p>
+                <Form />
             </div>
         </>
     )

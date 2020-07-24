@@ -10,13 +10,15 @@ class Left extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3002/api/posts')
+        setInterval(()=> {
+            fetch('http://localhost:3002/api/posts')
             .then(res => res.json())
             .then(res => {
                 this.setState({
                     posts: res
                 })
             });
+        }, 1000);
     }
 
     render() {
