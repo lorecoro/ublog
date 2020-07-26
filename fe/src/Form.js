@@ -50,11 +50,11 @@ class Form extends Component {
                 <div className="row">
                     <div className="input-field col s12">
                         <input
+                            disabled
                             id="user"
                             name="user"
                             type="text"
                             value={this.state.user}
-                            onChange={this.handleChange}
                             placeholder="Your Name"
                         />
                         <label htmlFor="user">Your Name</label>
@@ -64,6 +64,7 @@ class Form extends Component {
                 <div className="row">
                     <div className="input-field col s12">
                         <input
+                            required
                             id="post"
                             name="post"
                             type="text"

@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "./Avatar"
 
 class LeftRow extends React.Component {
     render() {
@@ -17,13 +18,10 @@ class LeftRow extends React.Component {
                 elapsed = post_datetime.getDate() + "/" + (post_datetime.getMonth() + 1) + "/" + post_datetime.getFullYear();
         }
 
-        const avatar = "https://avatars.dicebear.com/api/human/" + this.props.user + ".svg";
         return (
             <>
                 <div className="row">
-                    <div className="col s3">
-                        <img src={avatar} height="80px" alt="avatar"/>
-                    </div>
+                    <Avatar name={this.props.user} userAction={this.props.userAction} />
 
                     <div className="col s9">
                         <div className="row">

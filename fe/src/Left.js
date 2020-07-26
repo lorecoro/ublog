@@ -1,43 +1,28 @@
-import React from "react";
-import LeftRow from "./LeftRow";
+import React from "react"
+import PaneHeader from "./PaneHeader"
+import LeftPosts from "./LeftPosts"
+import LeftUsers from "./LeftUsers"
 
 class Left extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            posts: []
-        };
-    }
-
-    componentDidMount() {
-        setInterval(()=> {
-            fetch('http://localhost:3002/api/posts')
-            .then(res => res.json())
-            .then(res => {
-                this.setState({
-                    posts: res
-                })
-            });
-        }, 1000);
-    }
-
     render() {
-        const nOfPosts = this.state.posts ? this.state.posts.length : 0;
-        if (nOfPosts === 0) {
-            return(<></>);
-        }
-        else {
-            let leftRows = [];
-            for (let i = 0; i < nOfPosts; i++) {
-                const { _id, user, post, date } = this.state.posts[i];
-                leftRows.push(<LeftRow key={_id} user={user} post={post} date={date} />);
-            }
+        const {leftPane, posts, selectedUser, showAllPosts, showAllUsers, showOneUser, users} = this.props
+        if (leftPane === "Users") {
             return (
                 <>
-                    { leftRows }
+                    <PaneHeader buttonAction={showAllPosts} buttonText="Show all posts"/>
+                    <LeftUsers users={users} userAction={showOneUser} />
                 </>
             )
         }
+        else {
+            return (
+                <>
+                    <PaneHeader buttonAction={showAllUsers} buttonText="Show all users"/>
+                    <LeftPosts posts={posts} selectedUser={selectedUser} userAction={showOneUser} />
+                </>
+            )
+        }
+        
     }
 }
 

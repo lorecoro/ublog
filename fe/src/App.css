@@ -51,3 +51,9 @@
 .post {
   text-align: justify;
 }
+
+.message {
+  background-color: dodgerblue;
+  color: white;
+  font-size: 120%;
+}
