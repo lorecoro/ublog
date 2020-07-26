@@ -11,6 +11,12 @@ class Form extends Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+    componentDidMount() {
+        this.setState({
+            user: this.props.user
+        })
+    }
+
     handleChange(event) {
         const {name, value} = event.target
         this.setState({
@@ -48,17 +54,7 @@ class Form extends Component {
         return (
             <form className="col s12">
                 <div className="row">
-                    <div className="input-field col s12">
-                        <input
-                            disabled
-                            id="user"
-                            name="user"
-                            type="text"
-                            value={this.state.user}
-                            placeholder="Your Name"
-                        />
-                        <label htmlFor="user">Your Name</label>
-                    </div>
+                    <p>{this.state.user}'s post:</p>
                 </div>
 
                 <div className="row">
@@ -72,7 +68,6 @@ class Form extends Component {
                             onChange={this.handleChange}
                             placeholder="Your Message"
                         />
-                        <label htmlFor="post">Your Message</label>
                     </div>
                 </div>
 

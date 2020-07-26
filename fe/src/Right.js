@@ -5,21 +5,22 @@ import PaneHeader from "./PaneHeader"
 
 class Right extends React.Component {
     render() {
-        const {logInOrOut, rightPane, users} = this.props
-        
+        const {loggedIn, loggedInUser, logInOrOut, rightPane, showLogInForm, users} = this.props
+        const buttonAction = loggedIn ? logInOrOut : showLogInForm
+        const buttonText = loggedIn ? "Log out" : "Sign up / Log In"
         let child = <></>
         switch (rightPane) {
             case "LogIn":
-                child = <LogIn users={users}/>
+                child = <LogIn users={users} logInOrOut={logInOrOut}/>
                 break
             case "Form":
-                child = <Form />
+                child = <Form user={loggedInUser}/>
                 break
             default:
         }
         return (
             <>
-                <PaneHeader buttonAction={logInOrOut} buttonText="Sign up / Log In"/>
+                <PaneHeader buttonAction={buttonAction} buttonText={buttonText}/>
                 <div className="section">
                     {child}
                 </div>

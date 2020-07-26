@@ -8,15 +8,18 @@ class App extends React.Component {
     constructor() {
         super()
         this.state = {
-            users: [],
-            posts: [],
             leftPane: "Users",
-            selectedUser: "",
             loggedIn: false,
-            rightPane: ""
+            loggedInUser: "",
+            posts: [],
+            rightPane: "",
+            selectedUser: "",
+            users: [],
         }
-        this.logInOrOut = this.logInOrOut.bind(this)
+        this.logIn = this.logIn.bind(this)
+        this.logOut = this.logOut.bind(this)
         this.showAllUsers = this.showAllUsers.bind(this)
+        this.showLogInForm = this.showLogInForm.bind(this)
         this.showOneUser = this.showOneUser.bind(this)
         this.showAllPosts = this.showAllPosts.bind(this)
     }
@@ -42,10 +45,25 @@ class App extends React.Component {
         }, 2000)
     }
 
-    logInOrOut(event) {
+    logIn(user) {
+        this.setState({
+            loggedIn: true,
+            loggedInUser: user,
+            rightPane: "Form"
+        })
+    }
+    
+    logOut() {
+        this.setState({
+            loggedIn: false,
+            rightPane: "LogIn"
+        })
+    }
+
+    showAllUsers(event) {
         event.preventDefault()
         this.setState({
-            rightPane: "LogIn"
+            leftPane: "Users"
         })
     }
 
@@ -56,11 +74,11 @@ class App extends React.Component {
             selectedUser: ""
         })
     }
-    
-    showAllUsers(event) {
+
+    showLogInForm(event) {
         event.preventDefault()
         this.setState({
-            leftPane: "Users"
+            rightPane: "LogIn"
         })
     }
 
@@ -74,6 +92,7 @@ class App extends React.Component {
     }
 
     render() {
+        const logInOrOut = this.state.loggedIn ? this.logOut : this.logIn
         return (
             <div className="App">
                 <header className="App-header">
@@ -96,8 +115,11 @@ class App extends React.Component {
                     </div>
                     <div className="col s12 l6">
                         <Right 
-                            logInOrOut={this.logInOrOut}
+                            loggedIn={this.state.loggedIn}
+                            loggedInUser={this.state.loggedInUser}
+                            logInOrOut={logInOrOut}
                             rightPane={this.state.rightPane}
+                            showLogInForm={this.showLogInForm}
                             users={this.state.users}
                         />
                     </div>

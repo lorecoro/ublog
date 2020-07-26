@@ -51,7 +51,6 @@ class LogIn extends Component {
             return res.json()
         })
         .then(res => {
-            console.log(res)
             switch (status) {
                 case 200:
                     // logged in successfully
@@ -59,6 +58,7 @@ class LogIn extends Component {
                         message: "Welcome back " + res.name,
                         messageColor: "lightblue"
                     })
+                    this.props.logInOrOut(res.name)
                     break
                 case 201:
                     // new user
@@ -66,6 +66,7 @@ class LogIn extends Component {
                         message: "Welcome " + res.name,
                         messageColor: "green"
                     })
+                    this.props.logInOrOut(res.name)
                     break
                 case 401:
                     // authentication failed
@@ -81,11 +82,6 @@ class LogIn extends Component {
                     })
             }
         })
-
-        // Reset the message, leaving the user name
-        // this.setState({
-        //     post: ''
-        // })
     }
 
     render() {
@@ -103,7 +99,6 @@ class LogIn extends Component {
                             onChange={this.handleChange}
                             placeholder="Your Name"
                         />
-                        <label htmlFor="user">Your Name</label>
                     </div>
                 </div>
 
@@ -118,7 +113,6 @@ class LogIn extends Component {
                             onChange={this.handleChange}
                             placeholder="Your Password"
                         />
-                        <label htmlFor="password">Your Password</label>
                     </div>
                 </div>
 
