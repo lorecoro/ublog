@@ -17,9 +17,9 @@ class LeftPosts extends React.Component {
             }
         }
         return (
-            <>
+            <div className="vscroll">
                 { leftRows }
-            </>
+            </div>
         )
     }
 }

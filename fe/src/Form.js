@@ -74,6 +74,9 @@ class Form extends Component {
                         />
                     </div>
                 </div>
+
+                <p><em>Please note that the maximum length of the post is 100 characters; longer messages will be truncated.</em></p>
+
                 <button className="btn waves-effect waves-light" type="submit" onClick={this.handleClick}>Submit
                     <i className="material-icons right">send</i>
                 </button>
