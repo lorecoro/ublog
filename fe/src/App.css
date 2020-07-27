@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 20vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -15,7 +15,7 @@
 
 .App-header {
   background-color: darkblue;
-  min-height: 10vh;
+  min-height: 15vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +41,7 @@
   text-align: left;
   font-weight: bold;
   font-size: 120%;
+  margin-bottom: 0;
 }
 
 .date {
@@ -50,6 +51,7 @@
 
 .post {
   text-align: justify;
+  margin-bottom: 0;
 }
 
 .message {
@@ -65,4 +67,15 @@
   overflow-x: hidden;
   overflow-y: auto;
   text-align: justify;
+}
+
+/* overrides to materializecss classes */
+.row {
+    /* margin-bottom: 0; */
+    line-height: normal;
+}
+
+.input-field {
+    margin-top: 0;
+    margin-bottom: 0;
 }

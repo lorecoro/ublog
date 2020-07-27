@@ -12,9 +12,9 @@ class LeftUsers extends React.Component {
             }
         }
         return (
-            <>
+            <div className="vscroll">
                 { leftUsers }
-            </>
+            </div>
         )
     }
 }
