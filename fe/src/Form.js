@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import M from "materialize-css"
 
 class Form extends Component {
     constructor() {
@@ -15,6 +16,9 @@ class Form extends Component {
         this.setState({
             user: this.props.user
         })
+        // Initialize the character counter for the #post text input
+        const field = document.querySelector('#post')
+        M.CharacterCounter.init(field, {})
     }
 
     handleChange(event) {
@@ -42,7 +46,6 @@ class Form extends Component {
         }
         fetch(url, options)
         .then(res => res.json())
-        .then(res => console.log(res));
 
         // Reset the message, leaving the user name
         this.setState({
@@ -52,9 +55,10 @@ class Form extends Component {
 
     render() {
         return (
+            <>
             <form className="col s12">
                 <div className="row">
-                    <p>{this.state.user}'s post:</p>
+                <p><strong>{this.state.user}'s post:</strong></p>
                 </div>
 
                 <div className="row">
@@ -67,14 +71,16 @@ class Form extends Component {
                             value={this.state.post}
                             onChange={this.handleChange}
                             placeholder="Your Message"
+                            data-length="100"
                         />
                     </div>
                 </div>
-
                 <button className="btn waves-effect waves-light" type="submit" onClick={this.handleClick}>Submit
                     <i className="material-icons right">send</i>
                 </button>
             </form>
+
+    </>
         )
     }
 }
