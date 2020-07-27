@@ -64,7 +64,7 @@ exports.postPost = (req, res) => {
     res.setHeader('Content-Type', 'application/json')
     const newPostObj = new post({
         user: req.body.user,
-        post: req.body.post,
+        post: req.body.post.substring(0, 100),
         date: new Date
     })
     newPostObj.save(err => {
