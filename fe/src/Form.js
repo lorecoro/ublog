@@ -55,7 +55,6 @@ class Form extends Component {
 
     render() {
         return (
-            <>
             <form className="col s12">
                 <div className="row">
                 <p><strong>{this.state.user}'s post:</strong></p>
@@ -79,8 +78,6 @@ class Form extends Component {
                     <i className="material-icons right">send</i>
                 </button>
             </form>
-
-    </>
         )
     }
 }
