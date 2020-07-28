@@ -18,14 +18,17 @@ class LogIn extends Component {
         this.setState({
             [name]: value
         })
-        // Check if the user name exists, and change the button accordingly
-        const exists = this.props.users.filter((user) => {
-            return user.name === value
-        })
-        const buttonLabel = exists[0] ? "Log in" : "Sign up"
-        this.setState({
-            buttonLabel: buttonLabel
-        })
+
+        if (name === 'user') {
+            // Check if the user name exists, and change the button accordingly
+            const exists = this.props.users.filter((user) => {
+                return user.name === value
+            })
+            const buttonLabel = exists[0] ? "Log in" : "Sign up"
+            this.setState({
+                buttonLabel: buttonLabel
+            })
+        }
     }
 
     handleClick(event) {
