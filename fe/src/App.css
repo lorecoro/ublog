@@ -3,6 +3,8 @@
 }
 
 .App-logo {
+  margin-top: 16px;
+  margin-right: 24px;
   height: 10vmin;
   pointer-events: none;
 }
@@ -14,14 +16,12 @@
 }
 
 .App-header {
-  background-color: darkblue;
+  background-color: #039be5;;
   min-height: 15vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -30,10 +30,10 @@
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
 }
 
@@ -71,11 +71,15 @@
 
 /* overrides to materializecss classes */
 .row {
-    /* margin-bottom: 0; */
     line-height: normal;
 }
 
 .input-field {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.credits {
+    font-size: smaller;
+    color: grey;
 }

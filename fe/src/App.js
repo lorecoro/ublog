@@ -27,7 +27,7 @@ class App extends React.Component {
     componentDidMount() {
         setInterval(()=> {
             // fetch all the users
-            fetch('http://localhost:3002/api/users')
+            fetch('/api/users')
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -35,7 +35,7 @@ class App extends React.Component {
                 })
             })
             // fetch the latest 20 posts
-            fetch('http://localhost:3002/api/posts')
+            fetch('/api/posts')
             .then(res => res.json())
             .then(res => {
                 this.setState({
@@ -97,9 +97,7 @@ class App extends React.Component {
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                        Microblogging App
-                    </p>
+                    <p><strong>Microblogging App</strong></p>
                 </header>
                 <div className="row">
                     <div className="col s12 l6">
@@ -124,6 +122,7 @@ class App extends React.Component {
                         />
                     </div>
                 </div>
+                <div className="row credits">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
             </div>
         )
     }

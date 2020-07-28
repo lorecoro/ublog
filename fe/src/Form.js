@@ -32,7 +32,7 @@ class Form extends Component {
         event.preventDefault();
 
         // Send the post request to the backend
-        const url = "http://localhost:3002/api/post";
+        const url = "/api/post";
         const post = {
             user: this.state.user,
             post: this.state.post

@@ -32,7 +32,7 @@ class LogIn extends Component {
         event.preventDefault();
 
         // Send the post request to the backend
-        const url = "http://localhost:3002/api/user";
+        const url = "/api/user";
         const post = {
             user: this.state.user,
             password: this.state.password
