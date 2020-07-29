@@ -23,15 +23,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'http://localhost:8080' }));
 
 // Backend:
 app.use('/api', router);
 
 // Frontend:
-app.use(express.static(path.join(__dirname, '../fe/build')));
+app.use(express.static(path.join(__dirname, './fe/build')));
 app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname, '../fe//build/index.html'))
+    res.sendfile(path.join(__dirname, './fe//build/index.html'))
 })
 
 // catch 404 and forward to error handler
