@@ -1,12 +1,9 @@
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
 const MongoClient = require('mongodb').MongoClient;
 const mongoose = require('mongoose');
 const router = require('./routes/api');
-const cors = require('cors');
 
 const uri = "mongodb+srv://mongodb_user:mongodb_password@cluster0.8gcqw.mongodb.net/mongodb_database?retryWrites=true&w=majority";
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
@@ -14,16 +11,8 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'DB connection error'));
 
 const app = express();
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(cors({ origin: 'http://localhost:8080' }));
 
 // Backend:
 app.use('/api', router);
@@ -31,7 +20,7 @@ app.use('/api', router);
 // Frontend:
 app.use(express.static(path.join(__dirname, './fe/build')));
 app.get('*', (req, res) => {
-    res.sendfile(path.join(__dirname, './fe//build/index.html'))
+    res.sendfile(path.join(__dirname, './fe/build/index.html'))
 })
 
 // catch 404 and forward to error handler
