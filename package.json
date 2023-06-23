@@ -8,7 +8,7 @@
   "dependencies": {
     "express": "~4.17.3",
     "http-errors": "~1.6.3",
-    "mongodb": "^3.5.9",
+    "mongodb": "^3.7.4",
     "mongoose": "^5.13.15"
   }
 }
